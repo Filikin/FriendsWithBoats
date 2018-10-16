@@ -1,0 +1,13 @@
+<aura:component controller="BoatSearchResults" implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="Boats" type="Boat__c" />
+    <aura:handler name="init" value="{!this}" action="{!c.getBoats1}" />
+    
+       <lightning:button class="slds-m-top_small" variant="brand" type="submit" label="Get Boats" onclick="{!c.getBoats1 }"/>
+       <lightning:layout>
+       <div class="slds-grid slds-gutters slds-wrap">
+            <aura:iteration items="{!v.Boats}" var="oneBoat">
+                <c:BoatTile boat="{!oneBoat}" />
+            </aura:iteration>
+        </div>
+        </lightning:layout>
+</aura:component>
