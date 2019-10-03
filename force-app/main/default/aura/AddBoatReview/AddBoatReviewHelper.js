@@ -13,7 +13,7 @@
                 else {
                     var boat = component.get("v.boat");
                     rec.Boat__c = boat.Id;
-			        component.set("v.boatReview", boat);
+			        component.set("v.boatReview", rec);
                     
                 }
             }))

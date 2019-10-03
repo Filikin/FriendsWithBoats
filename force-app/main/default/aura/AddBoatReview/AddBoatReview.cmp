@@ -21,11 +21,9 @@
             	<lightning:input Name="title" label="Title" value="{!v.boatReview.Name}"/>
 			    <h1 class="slds-m-top_large slds-text-heading_medium">Description:</h1>
                 <lightning:inputRichText aura:id="comment" value="{!v.boatReview.Comment__c}" placeholder="Comment" label="Description:" disabledCategories="FORMAT_FONT"/>
+                <c:FiveStarRating value="{!v.boatReview.Rating__c}" readonly="false"/>
             	<lightning:button aura:id="submit" type="submit" label="Submit" class="slds-m-top_medium" iconName="utility:save" onclick="{!c.onSave}"/>
         </div>
-    </lightning:layoutItem>
-    <lightning:layoutItem>
-        <c:FiveStarRating boat="{!v.Rating__c}"/>
     </lightning:layoutItem>
 	</lightning:layout>
 </lightning:card>

@@ -30,7 +30,7 @@
                          	<p><lightning:formattedDateTime value="{!boatReview.CreatedDate}" 
                                    year="numeric" month="short" day="numeric"  
                                    hour="2-digit" minute="2-digit" hour12="true"/></p>
-                            <c:FiveStarRating boat="{!boatReview.Rating__c}"/>
+                            <c:FiveStarRating value="{!boatReview.Rating__c}" readonly="true"/>
                         </div>
                     </li>
                 </aura:iteration>
