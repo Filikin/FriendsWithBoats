@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:dependency resource="markup://BoatSearchResults"/>
+    <aura:dependency resource="markup://BoatSearchForm"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="formSubmit" event="c:FormSubmit" action="{!c.onFormSubmit}"/>
+    <lightning:card title="Find a Boat" class="slds-m-bottom_x-small">
+        <p class="slds-p-horizontal_small">
+		    {!v.body[0]}
+        </p>
+    </lightning:card>
+    <lightning:card title="Matching Boats">
+        <p class="slds-p-horizontal_small">
+		    {!v.body[1]}
+        </p>
+    </lightning:card>
+</aura:component>

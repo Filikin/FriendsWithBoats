@@ -1,0 +1,32 @@
+<aura:component >
+	<aura:attribute name="boat" type="Boat__c" access="PUBLIC" />
+    <aura:attribute name="boatReview" type="BoatReview__c" access="PRIVATE" />
+    <aura:attribute name="boatReviewRecord" type="object" access="PUBLIC"/>
+    <aura:attribute name="recordError" type="String" access="PRIVATE" />
+    <aura:registerEvent name="boatReviewAdded" type="c:BoatReviewAdded"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<force:recordData aura:id="service"
+		layoutType="FULL"
+        targetRecord="{!v.boatReviewRecord}"
+        targetFields="{!v.boatReview}"
+        fields="Id,Name,Comment__c,Boat__c,Rating__c"
+		recordUpdated="{!c.onRecordUpdated}" 
+        targetError="{!v.recordError}"
+        mode="EDIT" />   
+    <lightning:card>
+    <lightning:layout verticalAlign="stretch" >
+	<lightning:layoutItem flexibility="auto" padding="around-small">
+    	<div class="slds-p-horizontal--small">
+            	<lightning:messages />
+            	<lightning:input Name="title" label="Title" value="{!v.boatReview.Name}"/>
+			    <h1 class="slds-m-top_large slds-text-heading_medium">Description:</h1>
+                <lightning:inputRichText aura:id="comment" value="{!v.boatReview.Comment__c}" placeholder="Comment" label="Description:" disabledCategories="FORMAT_FONT"/>
+            	<lightning:button aura:id="submit" type="submit" label="Submit" class="slds-m-top_medium" iconName="utility:save" onclick="{!c.onSave}"/>
+        </div>
+    </lightning:layoutItem>
+    <lightning:layoutItem>
+        <c:FiveStarRating boat="{!v.Rating__c}"/>
+    </lightning:layoutItem>
+	</lightning:layout>
+</lightning:card>
+</aura:component>

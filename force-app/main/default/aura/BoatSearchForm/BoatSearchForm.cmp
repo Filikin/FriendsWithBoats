@@ -1,0 +1,25 @@
+<aura:component controller="BoatSearch" implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:registerEvent name="formSubmit" type="c:FormSubmit"/>
+    <aura:attribute name="showNewButton" type="Boolean" />
+    <aura:attribute name="BoatTypes" type="List" />
+    <aura:attribute name="selectedValue" type="String" default=""/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:layout class="slds-page-header slds-page-header--object-home" horizontalAlign="center" verticalAlign="center">
+         <lightning:layoutItem flexibility="auto" padding="around-small"> 
+	        <lightning:select name="BoatTypeSelect" label="" aura:id="boatTypeSelect" value="{!v.selectedValue}">
+    	        <option text="All Types" value="" selected="true"/>
+        	    <aura:iteration items="{!v.BoatTypes}" var="item">
+            	    <option text="{!item.Name}" value="{!item.Id}" />
+             	</aura:iteration>
+        	</lightning:select>  
+        </lightning:layoutItem>
+         <lightning:layoutItem  flexibility="auto" padding="around-small"> 
+			<lightning:button type="Submit" variant="brand" label="Search" onclick="{!c.onFormSubmit}" />
+        </lightning:layoutItem>
+ 		<lightning:layoutItem flexibility="auto" padding="around-small"> 
+     		<aura:if isTrue="{!v.showNewButton}">
+        		<lightning:button variant="neutral" label="New" onclick="{!c.handleNewBoat}" />
+        	</aura:if>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>
