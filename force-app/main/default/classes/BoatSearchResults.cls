@@ -7,10 +7,10 @@ public with sharing class BoatSearchResults {
     public static list<Boat__c> getBoats (String boatTypeId)
     {
     	if (boatTypeId == null || boatTypeId == ''){
-        	return [select Id, Name, Contact__r.Name, Picture__c from Boat__c];
+        	return [select Id, Name, Contact__r.Name, Picture__c,Geolocation__latitude__s,Geolocation__longitude__s from Boat__c];
     	}
     	else{
-        	return [select Id, Name, Contact__r.Name, Picture__c from Boat__c where	BoatType__c=:boatTypeId];
+        	return [select Id, Name, Contact__r.Name, Picture__c,Geolocation__latitude__s,Geolocation__longitude__s from Boat__c where	BoatType__c=:boatTypeId];
     	}
     }
     

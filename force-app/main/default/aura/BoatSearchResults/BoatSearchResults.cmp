@@ -11,7 +11,7 @@
 			<aura:if isTrue="{!v.boats.length > 0}">
 	            <aura:iteration items="{!v.boats}" var="boat">
     	            <lightning:layoutItem flexibility="auto" padding="around-small" class="slds-col slds-size_1-of-4">
-        		        <c:BoatTile boat="{!boat}" selected="{!v.selectedBoatId == boat.Id ? true : false}" />
+                        <c:BoatTile boat="{!boat}" selected="{!v.selectedBoatId == boat.Id ? true : false}" />
                 	</lightning:layoutItem>
              	</aura:iteration>
             <aura:set attribute="else">
